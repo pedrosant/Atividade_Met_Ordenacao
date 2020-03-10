@@ -5,18 +5,20 @@ using namespace::std;
 
 void bubbleSort(int v[10], int n);
 void tostring(int v[10], int n);
+void inserirNum(int v[10], int n);
+void selectionSort(int v[10], int n);
+
+
 int main() {
 	int v[10];
 	int aux = 10;
-	for (int i = 0; i < sizeof(v) / sizeof(v[i]); i++) {		
-		v[i] = aux;
-		aux = aux - 1;
-	}
-
-	tostring(v,10);
+	
+	inserirNum(v,10);
+	tostring(v, 10);
 	cout << "\n";
-	bubbleSort(v, 10);
-	tostring(v,10);
+	selectionSort(v,10);
+	tostring(v, 10);
+	
 }
 
 void tostring(int v[10],int n) {
@@ -24,6 +26,15 @@ void tostring(int v[10],int n) {
 		cout << v[i] << "\t";
 	}
 }
+
+void inserirNum(int v[10], int n) {
+	int aux = n;
+	for (int i = 0; i < n; i++) {
+		v[i] = aux;
+		aux = aux - 1;
+	}
+}
+
 
 
 void bubbleSort(int v[10], int n) {
@@ -38,3 +49,22 @@ void bubbleSort(int v[10], int n) {
 	}
 }
 
+void selectionSort(int v[10], int n) {
+	int aux;
+	for (int i = 0; i < n; i++){
+		int menor = i;
+		int aux;
+		for (int j = i + 1; j < n; j++){
+			if (v[j] < v[menor]){
+				menor = j;					
+			}		
+			aux = v[menor];
+			v[menor] = v[i];
+			v[i] = aux;
+		}
+	}
+}
+
+void insertionSort() {
+
+}
